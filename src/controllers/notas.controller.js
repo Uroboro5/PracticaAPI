@@ -5,7 +5,7 @@ import { getConection, sql} from "../database/conection";
 export const getNotas = async (req, res) => {
     try {
         const query = await getConection();
-        const rs = await query.request().query(config.select + "dbo.vw_notas");
+        const rs = await query.request().query(config.select + "vw_notas");
         return res.status(201).json(rs.recordset);
     } catch (error) {
         res.status(500).send(error.message);
@@ -88,7 +88,7 @@ export const updateFavorito = async (req, res) => {
 export const getNotasFavoritas = async (req, res) => {
     try {
         const query = await getConection();
-        const rs = await query.request().query(config.select + "dbo.vw_notasFavoritas");
+        const rs = await query.request().query(config.select + "vw_notasFavoritas");
         return res.status(201).json(rs.recordset);
     } catch (error) {
         res.status(500).send(error.message);
